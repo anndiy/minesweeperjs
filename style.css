@@ -1,28 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
 html {
-    background-color: rgb(32, 32, 32);
+    background-color: #5E0006;
     color: ivory;
+    font-family: 'Rubik', sans-serif;
 }
 
 
 #board {
     position: absolute;
-    width: 400px;
-    height: 400px;
-    background-color: crimson;
+    width: 410px;
+    height: 410px;
+    background-color: #9B0F06;
+    box-shadow: 0 0 20px #e88048;
     top: 100px;
     left: 100px;
     border-radius: 2%;
 }
 
 .tile {
-    font-size: x-small;
+    font-size: small;
     text-align: center;
     position: absolute;
     border-radius: 20%;
-    width: 20px;
-    height: 20px;
-    background-color: darkorange;
+    width: 25px;
+    height: 25px;
+    background-color: #D53E0F;
+    border: 1px solid #ffff00;
     margin: 10px;
+    box-shadow: 2px 2px #270101;
 }
 
 .bomb {
