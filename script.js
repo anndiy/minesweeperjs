@@ -41,11 +41,41 @@ function bombPlacer(){
 
 // Adding divs
 tileSheet.forEach((tile) => {
+    let text = isNearby(tile)
     const tempTile = document.createElement('div');
     tempTile.className = 'tile';
     tempTile.style.top = `${-40 + tile.x*40}px`;
     tempTile.style.left = `${-40 + tile.y*40}px`;
-    tempTile.innerText = `${tile.x}, ${tile.y}`;
+    tempTile.innerText = text==="0" ? "": text;
     if(bombSheet.some(t => t.x === tile.x && t.y === tile.y)) tempTile.classList.add('bomb');
     board.appendChild(tempTile)
 })
+
+
+function isNearby(tile){
+    let nearby = 0;
+    if(bombSheet.some(t => t.x === tile.x && t.y === tile.y)) return nearby = '💣'
+
+
+    let checks = [ //clockwise list of surrounding blocks coordinates
+        {x: tile.x-1,y: tile.y-1},
+        {x: tile.x,y: tile.y-1},
+        {x: tile.x+1,y: tile.y-1},
+        {x: tile.x+1,y: tile.y},
+        {x: tile.x+1,y: tile.y+1},
+        {x: tile.x,y: tile.y+1},
+        {x: tile.x-1,y: tile.y+1},
+        {x: tile.x-1,y: tile.y},
+    ]
+    checks.forEach((neighbor) =>{
+        //exclude non-existing tiles
+        if (!(neighbor.x>0 && neighbor.y>0 && neighbor.x<= columns && neighbor.y<= rows)) return;
+
+        //if the neighbour is a bomb, add nearby
+        if(bombSheet.some(t => t.x === neighbor.x && t.y === neighbor.y)){
+            nearby++;
+        }
+    })  
+    //console.log(nearby);
+    return nearby.toLocaleString();
+}
