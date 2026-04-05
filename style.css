@@ -3,3 +3,29 @@ html {
     color: ivory;
 }
 
+
+#board {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: crimson;
+    top: 100px;
+    left: 100px;
+    border-radius: 2%;
+}
+
+.tile {
+    font-size: x-small;
+    text-align: center;
+    position: absolute;
+    border-radius: 20%;
+    width: 20px;
+    height: 20px;
+    background-color: darkorange;
+    margin: 10px;
+}
+
+.bomb {
+    background-color: black;
+    border-radius: 50%;
+}
